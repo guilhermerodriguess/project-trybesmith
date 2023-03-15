@@ -17,3 +17,12 @@ export interface CreateUser {
 export interface IUser extends CreateUser {
   id: number;
 }
+
+export interface CreateOrder {
+  userId: number;
+  productsIds: number[];
+}
+
+export interface Order extends CreateOrder {
+  id: number;
+}

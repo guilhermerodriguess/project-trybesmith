@@ -1,4 +1,5 @@
 import express from 'express';
+import routerOrder from './routes/orderRoutes';
 import routerProducts from './routes/productRoutes';
 import routerUser from './routes/userRoutes';
 
@@ -8,5 +9,6 @@ app.use(express.json());
 
 app.use('/', routerProducts);
 app.use('/', routerUser);
+app.use('/', routerOrder);
 
 export default app;
