@@ -27,11 +27,6 @@ const getUserByUsername = async (login: Login): Promise<IUser[]> => {
   return data || null;
 };
 
-getUserByUsername({
-  username: 'string',
-  password: 'string',
-});
-
 const userModel = { createUser, getUserByUsername };
 
 export default userModel;

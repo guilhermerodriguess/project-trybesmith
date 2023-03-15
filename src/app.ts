@@ -6,8 +6,8 @@ import routerUser from './routes/userRoutes';
 const app = express();
 
 app.use(express.json());
-app.use('/', routerUser);
-app.use('/', routerOrder);
-app.use('/', routerProducts);
+app.use('/users', routerUser);
+app.use('/orders', routerOrder);
+app.use('/products', routerProducts);
 
 export default app;
