@@ -1,15 +1,19 @@
 import { Request, Response } from 'express';
 import { CreateProduct } from '../interfaces';
-import * as productService from '../services/product.service';
+import productsService from '../services/product.service';
 
-export async function createProductController(req: Request, res: Response) {
+const createProductController = async (req: Request, res: Response) => {
   const product = req.body as CreateProduct;
-  const { status, data } = await productService.createProduct(product);
+  const { status, data } = await productsService.createProduct(product);
 
   return res.status(status).json(data);
-}
+};
 
-export async function getAllProductsController(_req: Request, res: Response) {
-  const { status, data } = await productService.getAllProductsService();
+const getAllProductsController = async (_req: Request, res: Response) => {
+  const { status, data } = await productsService.getAllProductsService();
   return res.status(status).json(data);
-}
+};
+
+const productController = { createProductController, getAllProductsController };
+
+export default productController;
