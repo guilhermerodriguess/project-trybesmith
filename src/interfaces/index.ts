@@ -26,3 +26,8 @@ export interface CreateOrder {
 export interface Order extends CreateOrder {
   id: number;
 }
+
+export interface Login {
+  username: string;
+  password: string;
+}

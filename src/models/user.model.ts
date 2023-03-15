@@ -1,5 +1,5 @@
-import { ResultSetHeader } from 'mysql2';
-import { CreateUser, IUser } from '../interfaces';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
+import { CreateUser, IUser, Login } from '../interfaces';
 import connection from './connection';
 
 const createUser = async (user: CreateUser): Promise<IUser> => {
@@ -16,6 +16,22 @@ const createUser = async (user: CreateUser): Promise<IUser> => {
   return newUser;
 };
 
-const userModel = { createUser };
+const getUserByUsername = async (login: Login): Promise<IUser[]> => {
+  const { username } = login;
+
+  const query = 'SELECT * FROM Trybesmith.users WHERE users.username = ?';
+  const values = [username];
+
+  const [data] = await connection.execute<RowDataPacket[] & IUser[]>(query, values);
+
+  return data || null;
+};
+
+getUserByUsername({
+  username: 'string',
+  password: 'string',
+});
+
+const userModel = { createUser, getUserByUsername };
 
 export default userModel;

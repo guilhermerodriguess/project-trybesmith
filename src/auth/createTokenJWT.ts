@@ -1,7 +1,7 @@
 import jwt, { SignOptions } from 'jsonwebtoken';
 import { IUser } from '../interfaces';
 
-const secret = process.env.JWT_SECRET || 'senha';
+const secret = 'secret';
 
 require('dotenv/config');
 
