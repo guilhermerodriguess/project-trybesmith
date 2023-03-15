@@ -4,7 +4,7 @@ import validateBody from '../middlewares/productMiddlewares';
 
 const routerProducts = Router();
 
-routerProducts.post('/', validateBody, productController.createProductController);
-routerProducts.get('/', productController.getAllProductsController);
+routerProducts.post('/products', validateBody, productController.createProductController);
+routerProducts.get('/products', productController.getAllProductsController);
 
 export default routerProducts;
